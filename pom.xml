@@ -345,7 +345,6 @@
 
 	<!-- 插件配置 -->
 	<build>
-
 		<plugins>
 			<!-- compiler插件, 设定JDK版本 -->
 			<plugin>
@@ -356,7 +355,9 @@
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
 					<showWarnings>true</showWarnings>
+					 <encoding>utf8</encoding> 
 				</configuration>
+				
 			</plugin>
 
 			<!-- test插件, 仅测试名称为*Test的类, 使用支持分组测试的surefire-junit47 driver -->
