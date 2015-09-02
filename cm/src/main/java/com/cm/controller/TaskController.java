@@ -1,7 +1,7 @@
 /**
  * There are <a href="https://github.com/ketayao/keta-custom">keta-custom</a> code generation
  */
-package com.sample.controller;
+package com.cm.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletRequest;
-
 import javax.validation.Valid;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -28,14 +27,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cm.entity.Task;
+import com.cm.service.TaskService;
 import com.ketayao.ketacustom.util.dwz.AjaxObject;
 import com.ketayao.ketacustom.util.dwz.Page;
 import com.ketayao.ketacustom.util.persistence.DynamicSpecifications;
 import com.ketayao.ketacustom.log.Log;
 import com.ketayao.ketacustom.log.LogMessageObject;
 import com.ketayao.ketacustom.log.impl.LogUitls;
-import com.sample.entity.Task;
-import com.sample.service.TaskService;
 
 @Controller
 @RequestMapping("/management/demo/task")
@@ -122,7 +121,7 @@ public class TaskController {
 		return AjaxObject.newOk("任务删除成功！").setCallbackType("").toString();
 	}
 
-	@RequiresPermissions("Task:view")
+	
 	@RequestMapping(value="/list", method={RequestMethod.GET, RequestMethod.POST})
 	public String list(ServletRequest request, Page page, Map<String, Object> map) {
 		Specification<Task> specification = DynamicSpecifications.bySearchFilter(request, Task.class);

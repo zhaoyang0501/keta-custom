@@ -599,6 +599,6 @@
 		<module>keta-custom-resources</module>
 		<module>keta-custom-component</module>
 		<module>keta-custom-generate</module>
-		<module>sample</module>
+		<module>cm</module>
 	</modules>
 </project>

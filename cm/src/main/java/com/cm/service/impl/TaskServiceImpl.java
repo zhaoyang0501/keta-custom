@@ -1,7 +1,7 @@
 /**
  * There are <a href="https://github.com/ketayao/keta-custom">keta-custom</a> code generation
  */
-package	com.sample.service.impl;
+package	com.cm.service.impl;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cm.dao.TaskDAO;
+import com.cm.entity.Task;
+import com.cm.service.TaskService;
 import com.ketayao.ketacustom.util.dwz.Page;
 import com.ketayao.ketacustom.util.dwz.PageUtils;
-import com.sample.entity.Task;
-import com.sample.dao.TaskDAO;
-import com.sample.service.TaskService;
 
 @Service
 @Transactional

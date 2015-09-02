@@ -1,7 +1,7 @@
 /**
  * There are <a href="https://github.com/ketayao/keta-custom">keta-custom</a> code generation
  */
-package com.sample.entity;
+package com.cm.entity;
 
 import java.util.Date;
 
