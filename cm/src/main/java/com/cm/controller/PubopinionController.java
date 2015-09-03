@@ -49,6 +49,7 @@ public class PubopinionController {
 	private static final String LIST = "management/pubopinion/pubopinion/list";
 	private static final String VIEW = "management/pubopinion/pubopinion/view";
 	
+	
 	@InitBinder
 	public void dataBinder(WebDataBinder dataBinder) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
