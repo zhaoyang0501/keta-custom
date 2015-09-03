@@ -43,6 +43,7 @@ public class TaskController {
 	@Autowired
 	private TaskService taskService;
 	
+	
 	private static final String CREATE = "management/demo/task/create";
 	private static final String UPDATE = "management/demo/task/update";
 	private static final String LIST = "management/demo/task/list";
