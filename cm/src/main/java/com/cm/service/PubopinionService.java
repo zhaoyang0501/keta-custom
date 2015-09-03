@@ -7,17 +7,17 @@ import java.util.List;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import com.cm.entity.Opinion;
+import com.cm.entity.Pubopinion;
 import com.ketayao.ketacustom.util.dwz.Page;
 
-public interface OpinionService {
-	Opinion get(Long id);
+public interface PubopinionService {
+	Pubopinion get(Long id);
 
-	void saveOrUpdate(Opinion opinion);
+	void saveOrUpdate(Pubopinion pubopinion);
 
 	void delete(Long id);
 	
-	List<Opinion> findAll(Page page);
+	List<Pubopinion> findAll(Page page);
 	
-	List<Opinion> findByExample(Specification<Opinion> specification, Page page);
+	List<Pubopinion> findByExample(Specification<Pubopinion> specification, Page page);
 }

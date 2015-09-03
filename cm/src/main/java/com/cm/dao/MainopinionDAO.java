@@ -6,8 +6,8 @@ package com.cm.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import com.cm.entity.Opinion;
+import com.cm.entity.Mainopinion;
 
-public interface OpinionDAO extends JpaRepository<Opinion, Long>, JpaSpecificationExecutor<Opinion> {
+public interface MainopinionDAO extends JpaRepository<Mainopinion, String>, JpaSpecificationExecutor<Mainopinion> {
 
 }

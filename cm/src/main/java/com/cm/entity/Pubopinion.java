@@ -18,12 +18,10 @@ import com.ketayao.ketacustom.entity.Idable;
 
 @Entity
 @Table(name="tzzj_pub_opinion")
-public class Opinion implements Idable<Long>{
+public class Pubopinion implements Idable<Long>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-	
     
 	/**
 	 * 问题内容
