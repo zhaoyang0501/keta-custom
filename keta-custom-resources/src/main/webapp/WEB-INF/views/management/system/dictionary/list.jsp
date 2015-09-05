@@ -103,14 +103,7 @@ function back() {
 				<td>${item.name}</td>
 				<td>${item.priority}</td>
 				<td>${item.value}</td>
-				<c:choose>
-					<c:when test="${dictionaryType == 'THEME' }">
 				<td><a iconClass="book_open" href="${contextPath}/management/system/dictionary/list?id=${item.id}" target="navTab" onclick="jumpDictionary();" title="进入词条">进入词条</a></td>
-					</c:when>
-					<c:otherwise>
-				<td>${pDictionary.name }</td>
-					</c:otherwise>
-				</c:choose>
 			</tr>
 			</c:forEach>
 		</tbody>
