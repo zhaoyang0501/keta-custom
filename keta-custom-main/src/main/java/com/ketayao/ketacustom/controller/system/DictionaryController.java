@@ -3,7 +3,9 @@
  */
 package com.ketayao.ketacustom.controller.system;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -121,5 +123,23 @@ public class DictionaryController {
 		map.put("dictionarys", dictionarys);
 		
 		return LIST;
+	}
+	
+	/**
+	 * 根据父节点名称查询子节点
+	 * @param name
+	 * @return
+	 */
+	@RequestMapping(value="/parent_{name}")
+	public @ResponseBody  List childrenOfParentName(@PathVariable String name){
+		List<Dictionary> dictionaries = dictionaryService.findByThemeName(name, null);
+		List list = new ArrayList();
+		for(Dictionary dictionary : dictionaries){
+			List list2 = new ArrayList();
+			list2.add(dictionary.getName());
+			list2.add(dictionary.getValue());
+			list.add(list2);
+		}
+		return list;
 	}
 }

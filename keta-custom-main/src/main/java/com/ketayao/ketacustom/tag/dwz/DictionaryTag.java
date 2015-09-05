@@ -31,6 +31,12 @@ public class DictionaryTag extends SimpleTagSupport implements ApplicationContex
 	private String className;
 	// 分页参数
 	private Page page;
+	//级联子下拉的id
+	private String id;
+	//刷新的级联子下拉目标
+	private String ref;
+	//请求的地址
+	private String refUrl;
 	
 	private static DictionaryService dictionaryService;
 	
@@ -51,12 +57,20 @@ public class DictionaryTag extends SimpleTagSupport implements ApplicationContex
 		List<Dictionary> dictionaries = dictionaryService.findByThemeName(themeName, page);
 		
 		StringBuilder builder = new StringBuilder();
+		builder.append("<select name=\"" + paramName);
 		if (className != null) {
-			builder.append("<select name=\"" + paramName + "\" class=\"" + className + "\">\n");
-		} else {
-			builder.append("<select name=\"" + paramName + "\">\n");
+			builder.append("\" class=\"" + className);
 		}
-		
+		if(id!=null){
+			builder.append("\" id=\"" + id);
+		}
+		if(ref!=null){
+			builder.append("\" ref=\"" + ref);
+		}
+		if(refUrl!=null){
+			builder.append("\" refUrl=\"" + refUrl);
+		}
+		builder.append("\">\n");
 		getJspContext().getOut().write(builder.toString());
 		//输出自定义选项
         getJspBody().invoke(null);
@@ -108,5 +122,17 @@ public class DictionaryTag extends SimpleTagSupport implements ApplicationContex
 	public void setPage(Page page) {
 		this.page = page;
 	}
-	
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setRef(String ref) {
+		this.ref = ref;
+	}
+
+	public void setRefUrl(String refUrl) {
+		this.refUrl = refUrl;
+	}
+
 }
