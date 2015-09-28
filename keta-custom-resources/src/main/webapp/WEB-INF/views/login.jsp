@@ -27,6 +27,13 @@
     });
 
 </script>
+<style type="text/css">
+
+.login_logo {
+float: left;
+margin-top: 0px;
+}
+</style>
 </head>
 
 <body>
@@ -37,12 +44,7 @@
 			</h1>
 
 			<div class="login_headerContent">
-				<div class="navList">
-					<ul>
-						<li><a href="${contextPath}/management/index">后台主页</a></li>
-						<li><a href="https://github.com/ketayao/keta-custom" target="_blank">k-custom主页</a></li>
-					</ul>
-				</div>
+				
 				<h2 class="login_title">请登录</h2>
 			</div>
 		</div>
