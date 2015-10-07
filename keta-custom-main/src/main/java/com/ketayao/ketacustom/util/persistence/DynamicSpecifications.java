@@ -132,7 +132,7 @@ public class DynamicSpecifications {
 							predicates.add(builder.lessThanOrEqualTo(expression, (Comparable) filter.getValue()));
 							break;
 						case IN:
-							predicates.add(builder.and(expression.in((Object[])filter.getValue())));
+							predicates.add(builder.and(expression.in((ArrayList)filter.getValue())));
 							break;
 						}
 					}
