@@ -107,7 +107,7 @@ public class User implements Idable<Long> {
 	@OrderBy("priority ASC")
 	private List<UserRole> userRoles = new ArrayList<UserRole>();
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="organizationId")
 	private Organization organization;
 	
