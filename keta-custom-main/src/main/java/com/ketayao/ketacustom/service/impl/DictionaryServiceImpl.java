@@ -86,4 +86,9 @@ public class DictionaryServiceImpl implements DictionaryService {
 		page.setTotalCount(springDataPage.getTotalElements());
 		return springDataPage.getContent();
 	}
+
+	@Override
+	public List<Dictionary> findById(Long id, Page page) {
+		return dictionaryDAO.findAllItems(id);
+	}
 }

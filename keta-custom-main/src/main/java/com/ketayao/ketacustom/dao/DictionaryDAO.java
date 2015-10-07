@@ -32,4 +32,7 @@ public interface DictionaryDAO extends JpaRepository<Dictionary, Long>, JpaSpeci
 	)
 	@Query("FROM Dictionary d WHERE d.parent.name=?1 AND d.type='ITEM' ORDER BY d.priority ASC")
 	List<Dictionary> findAllItems(String themeName);
+	
+	@Query("FROM Dictionary d WHERE d.parent.id=?1 AND d.type='ITEM' ORDER BY d.priority ASC")
+	List<Dictionary> findAllItems(Long id);
 }

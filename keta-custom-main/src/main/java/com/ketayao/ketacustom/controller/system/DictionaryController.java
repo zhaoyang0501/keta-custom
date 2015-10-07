@@ -130,14 +130,14 @@ public class DictionaryController {
 	 * @param name
 	 * @return
 	 */
-	@RequestMapping(value="/parent_{name}")
-	public @ResponseBody  List childrenOfParentName(@PathVariable String name){
-		List<Dictionary> dictionaries = dictionaryService.findByThemeName(name, null);
+	@RequestMapping(value="/parent_{id}")
+	public @ResponseBody  List childrenOfParentName(@PathVariable Long id){
+		List<Dictionary> dictionaries = dictionaryService.findById(id, null);
 		List list = new ArrayList();
 		for(Dictionary dictionary : dictionaries){
 			List list2 = new ArrayList();
+			list2.add(dictionary.getId());
 			list2.add(dictionary.getName());
-			list2.add(dictionary.getValue());
 			list.add(list2);
 		}
 		return list;

@@ -115,6 +115,26 @@
 			<name>page</name>
 			<required>false</required>
 			<fragment>true</fragment>
-		</attribute>				  
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<fragment>true</fragment>
+		</attribute>
+		<attribute>
+			<name>ref</name>
+			<required>false</required>
+			<fragment>true</fragment>
+		</attribute>
+		<attribute>
+			<name>refUrl</name>
+			<required>false</required>
+			<fragment>true</fragment>
+		</attribute>		
+		<attribute>
+			<name>toName</name>
+			<required>false</required>
+			<fragment>true</fragment>
+		</attribute>		  
     </tag>    
 </taglib>

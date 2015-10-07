@@ -22,4 +22,6 @@ public interface DictionaryService {
 	List<Dictionary> findByExample(Specification<Dictionary> specification, Page page);
 	
 	List<Dictionary> findByThemeName(String themeName, Page page);
+	
+	List<Dictionary> findById(Long id, Page page);
 }

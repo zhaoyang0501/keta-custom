@@ -15,9 +15,9 @@ import com.ketayao.ketacustom.entity.main.Dictionary;
 import com.ketayao.ketacustom.service.DictionaryService;
 import com.ketayao.ketacustom.util.dwz.Page;
 
-/** 
- * @author 	<a href="mailto:ketayao@gmail.com">ketayao</a>
- * @since   2014年1月8日 下午4:23:29 
+/**
+ * @author <a href="mailto:ketayao@gmail.com">ketayao</a>
+ * @since 2014年1月8日 下午4:23:29
  */
 @Component
 public class DictionaryTag extends SimpleTagSupport implements ApplicationContextAware {
@@ -31,93 +31,114 @@ public class DictionaryTag extends SimpleTagSupport implements ApplicationContex
 	private String className;
 	// 分页参数
 	private Page page;
-	//级联子下拉的id
+	// 级联子下拉的id
 	private String id;
-	//刷新的级联子下拉目标
+	// 刷新的级联子下拉目标
 	private String ref;
-	//请求的地址
+	// 请求的地址
 	private String refUrl;
-	
+	// 转义值
+	private String toName;
+
 	private static DictionaryService dictionaryService;
-	
-	/* (non-Javadoc)
-	 * @see org.springframework.context.ApplicationContextAware#setApplicationContext(org.springframework.context.ApplicationContext)
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.context.ApplicationContextAware#setApplicationContext
+	 * (org.springframework.context.ApplicationContext)
 	 */
 	@Override
-	public void setApplicationContext(ApplicationContext applicationContext)
-			throws BeansException {
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		dictionaryService = applicationContext.getBean(DictionaryService.class);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
 	@Override
 	public void doTag() throws JspException, IOException {
 		List<Dictionary> dictionaries = dictionaryService.findByThemeName(themeName, page);
-		
+
 		StringBuilder builder = new StringBuilder();
-		builder.append("<select name=\"" + paramName);
-		if (className != null) {
-			builder.append("\" class=\"" + className);
-		}
-		if(id!=null){
-			builder.append("\" id=\"" + id);
-		}
-		if(ref!=null){
-			builder.append("\" ref=\"" + ref);
-		}
-		if(refUrl!=null){
-			builder.append("\" refUrl=\"" + refUrl);
-		}
-		builder.append("\">\n");
-		getJspContext().getOut().write(builder.toString());
-		//输出自定义选项
-        getJspBody().invoke(null);
-        
-        builder = new StringBuilder();
-		for (Dictionary dictionary : dictionaries) {
-			if (dictionary.getValue().equals(selectedValue)) {
-				builder.append("<option value=\"" + dictionary.getValue() + "\" selected=\"selected\">" + dictionary.getName() + "</option>\n");
-			} else {
-				builder.append("<option value=\"" + dictionary.getValue() + "\">" + dictionary.getName() + "</option>\n");
+		if (toName != null) {
+			for (Dictionary dictionary : dictionaries) {
+				if (toName.equals(String.valueOf(dictionary.getId()))) {
+					builder.append(dictionary.getName());
+				}
 			}
+		} else {
+			builder.append("<select name=\"" + paramName);
+			if (className != null) {
+				builder.append("\" class=\"" + className);
+			}
+			if (id != null) {
+				builder.append("\" id=\"" + id);
+			}
+			if (ref != null) {
+				builder.append("\" ref=\"" + ref);
+			}
+			if (refUrl != null) {
+				builder.append("\" refUrl=\"" + refUrl);
+			}
+			builder.append("\">\n");
+			getJspContext().getOut().write(builder.toString());
+			// 输出自定义选项
+			getJspBody().invoke(null);
+
+			builder = new StringBuilder();
+			for (Dictionary dictionary : dictionaries) {
+				if (String.valueOf(dictionary.getId()).equals(selectedValue)) {
+					builder.append("<option value=\"" + dictionary.getId() + "\" selected=\"selected\">"
+							+ dictionary.getName() + "</option>\n");
+				} else {
+					builder.append(
+							"<option value=\"" + dictionary.getId() + "\">" + dictionary.getName() + "</option>\n");
+				}
+			}
+			builder.append("</select>\n");
 		}
-		builder.append("</select>\n");
-		
 		getJspContext().getOut().write(builder.toString());
 	}
-	
+
 	/**
-	 * @param themeName the themeName to set
+	 * @param themeName
+	 *            the themeName to set
 	 */
 	public void setThemeName(String themeName) {
 		this.themeName = themeName;
 	}
 
 	/**
-	 * @param selectedValue the selectedValue to set
+	 * @param selectedValue
+	 *            the selectedValue to set
 	 */
 	public void setSelectedValue(String selectedValue) {
 		this.selectedValue = selectedValue;
 	}
 
 	/**
-	 * @param paramName the paramName to set
+	 * @param paramName
+	 *            the paramName to set
 	 */
 	public void setParamName(String paramName) {
 		this.paramName = paramName;
 	}
 
 	/**
-	 * @param className the className to set
+	 * @param className
+	 *            the className to set
 	 */
 	public void setClassName(String className) {
 		this.className = className;
 	}
 
 	/**
-	 * @param page the page to set
+	 * @param page
+	 *            the page to set
 	 */
 	public void setPage(Page page) {
 		this.page = page;
@@ -133,6 +154,14 @@ public class DictionaryTag extends SimpleTagSupport implements ApplicationContex
 
 	public void setRefUrl(String refUrl) {
 		this.refUrl = refUrl;
+	}
+
+	/**
+	 * @param toName
+	 *            the toName to set
+	 */
+	public void setToName(String toName) {
+		this.toName = toName;
 	}
 
 }

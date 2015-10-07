@@ -22,7 +22,7 @@ import com.ketayao.ketacustom.entity.Idable;
  *
  */
 @Entity
-@Table(name="keta_role_permission_data_control")
+@Table(name="keta_role_permission_data_ctr")
 @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="com.ketayao.ketacustom.entity.main.RolePermissionDataControl")
 public class RolePermissionDataControl implements Idable<Long>{
 	@Id
