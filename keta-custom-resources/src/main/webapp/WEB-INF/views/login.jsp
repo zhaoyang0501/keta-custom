@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>KETA定制化平台</title>
+<title>江都实体化路面巡查管理系统</title>
 <link href="${contextPath}/styles/dwz/themes/default/style.css" rel="stylesheet" type="text/css" />
 <link href="${contextPath}/styles/dwz/themes/css/core.css" rel="stylesheet" type="text/css" />
 <link href="${contextPath}/styles/dwz/themes/css/login.css" rel="stylesheet" type="text/css" />
@@ -83,13 +83,13 @@ margin-top: 0px;
 				</ul>
 
 				<div class="login_inner">
-					<p>测试用户名: admin</p>
+					<p>测试用户名: root</p>
 					<p>测试密码: 123456</p>
 				</div>
 			</div>
 		</div>
 		<div id="login_footer">
-			Copyright &copy; 2012-2013, ketayao.com, All Rights Reserve.
+			版权所有 &copy; 2012-2013, 江都电信分公司, All Rights Reserve.
 		</div>
 	</div>
 </body>

@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>KETA定制化平台</title>
+<title>江都实体化路面巡查管理系统</title>
 <link href="${contextPath}/styles/dwz/themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="${contextPath}/styles/dwz/themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="${contextPath}/styles/dwz/themes/css/print.css" rel="stylesheet" type="text/css" media="print"/>
@@ -92,7 +92,7 @@ $(function(){
 		<div class="headerNav">
 			<a class="logo" href="${contextPath}/management/index">Logo</a>
 			<ul class="nav">
-				<li><a href="${contextPath}/management/index">主页</a></li>
+				<li>欢迎您：${login_user.realname }</li>
 				<li><a href="${contextPath}/management/index/updateBase" target="dialog" mask="true" width="550" height="250">修改用户信息</a></li>
 				<li><a href="${contextPath}/management/index/updatePwd" target="dialog" mask="true" width="500" height="200">修改密码</a></li>
 				<li><a href="${contextPath}/logout">退出</a></li>
@@ -186,7 +186,7 @@ $(function(){
 						</dl>
 						<dl>
 							<dt>所属机构：</dt>
-							<dd><span class="unit">${login_user.organization.name }</span></dd>
+							<%-- <dd><span class="unit">${login_user.organization.name }</span></dd> --%>
 						</dl>
 					</fieldset>
 					</div>
@@ -196,6 +196,6 @@ $(function(){
 	</div>
 </div>
 
-<div id="footer">Copyright &copy; 2012-2013, ketayao.com, All Rights Reserve.</div>
+<div id="footer">版权所有 © 2012-2013, 江都电信分公司, All Rights Reserve.</div>
 </body>
 </html>
