@@ -14,7 +14,7 @@
 			<p class="nowrap">
 				<label>受理/回退意见：</label>
 				<textarea name="replyConts" maxlength="4000"
-					class="input-medium required validate[required]">
+					class="textInput required validate[required]">
 					${pubOpinion.replyConts}
 				</textarea>
 			</p>		
